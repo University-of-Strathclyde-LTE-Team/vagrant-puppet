@@ -66,19 +66,28 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
+
+  config.vm.provision "file", source: "puppetlabs-release-pc1-xenial.deb", destination: "/home/vagrant/puppetlabs-release-pc1-xenial.deb"
+
+#  config.vm.provision "file", source: "puppet-agent_1.5.3-1xenial_amd64.deb", destination: "puppet-agent_1.5.3-1xenial_amd64.deb"
+
   config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-	apt-get install -y puppet
+	#wget https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
+	sudo dpkg -i /home/vagrant/puppetlabs-release-pc1-xenial.deb
+	#sudo dpkg -i /home/vagrant/puppet-agent_1.5.3-1xenial_amd64.deb
+	sudo apt-get update
+        sudo apt-get install --yes puppet
   SHELL
+  
   config.librarian_puppet.puppetfile_dir = "puppet"
   config.librarian_puppet.placeholder_filename =".MYPLACEHOLDER"
   config.librarian_puppet.use_v1_api = "1"
   config.librarian_puppet.destructive = false
   
   config.vm.provision "puppet" do |puppet|
+#	puppet.binary_path = "/opt/puppetlabs/bin"
 	puppet.manifests_path = "manifests"
-	puppet.manifest_file = "default.pp"
+#	puppet.manifest_file = "default.pp"
 	puppet.module_path = "puppet/modules"
 	
   end
