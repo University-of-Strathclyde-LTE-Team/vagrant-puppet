@@ -67,7 +67,7 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
 
-  config.vm.provision "file", source: "puppetlabs-release-pc1-xenial.deb", destination: "/home/vagrant/puppetlabs-release-pc1-xenial.deb"
+  config.vm.provision "file", source: "deps/puppetlabs-release-pc1-xenial.deb", destination: "/home/vagrant/puppetlabs-release-pc1-xenial.deb"
 
 #  config.vm.provision "file", source: "puppet-agent_1.5.3-1xenial_amd64.deb", destination: "puppet-agent_1.5.3-1xenial_amd64.deb"
 
