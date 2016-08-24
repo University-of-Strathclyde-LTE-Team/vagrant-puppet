@@ -20,8 +20,8 @@ vagrant plugin install vagrant-share
 
 Usage
 =====
-# Install vagrant
-# Install vagrant dependencies
-# Clone this repo to your machine
-# Execute ```git submodule update```
-# Execute ```vagrant up```
+1. Install vagrant
+2. Install vagrant dependencies
+3. Clone this repo to your machine
+4. Execute ```git submodule update```
+5. Execute ```vagrant up```
