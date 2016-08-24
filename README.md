@@ -1,7 +1,7 @@
 About
 =====
 
-This is a Puppet module for compiling PHP from scratch.
+This is a Vagrant script for provisioning machines using Puppet.
 
 It's main anticipated use is in the provisioning of development and production servers
 for the University of Strathclyde's VLE, Myplace.
@@ -12,5 +12,7 @@ Dependencies
 ============
 
 vagrant plugin install puppet
+
 vagrant plugin install vagrant-librarian-puppet
+
 vagrant plugin install vagrant-share
