@@ -16,3 +16,12 @@ vagrant plugin install puppet
 vagrant plugin install vagrant-librarian-puppet
 
 vagrant plugin install vagrant-share
+
+
+Usage
+=====
+# Install vagrant
+# Install vagrant dependencies
+# Clone this repo to your machine
+# Execute ```git submodule update```
+# Execute ```vagrant up```
