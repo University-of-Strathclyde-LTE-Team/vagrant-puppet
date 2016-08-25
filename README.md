@@ -23,5 +23,6 @@ Usage
 1. Install vagrant
 2. Install vagrant dependencies
 3. Clone this repo to your machine
-4. Execute ```git submodule update```
-5. Execute ```vagrant up```
+4. Execute ```git submodule init```
+5. Execute ```git submodule update```
+6. Execute ```vagrant up```
