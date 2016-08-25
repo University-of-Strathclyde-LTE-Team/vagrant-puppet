@@ -2,8 +2,9 @@
 # This script sets up an Apache web server, with PHP and Mysql
 
 # Global variables
-$myplace_wwwroot = '/vagrant/web'
-$myplace_dataroot = '/vagrant/data'
+$myplace_root = "/moodle"
+$myplace_wwwroot = "${myplace_root}/web"
+$myplace_dataroot = "${myplace_root}/data"
 
 # Set to true to install Apache web server
 $install_apache = true
@@ -19,6 +20,11 @@ $myplacedbuser = 'myplace'
 $myplacedbpassword = ''     
 
 #Exec { path =}
+
+file { $myplace_root :
+    ensure => 'directory'
+}
+
 
 # System
  if ($install_apache) {
@@ -77,7 +83,7 @@ if ($install_mysql) {
 }
 
 if ($install_mysql) {
-    notice("You may have to set the following in config.php: DB ${myplacedb}, dbuser = '${myplacedbuser}. dbpass = ${myplacedbpassword}")
+    notice("You may have to set the following in config.php: DB ${myplacedb}, dbuser = ${myplacedbuser}. dbpass = ${myplacedbpassword}")
 }
 
 # Ensure data root exists
