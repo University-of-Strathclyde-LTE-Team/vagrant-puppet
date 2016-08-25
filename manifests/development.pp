@@ -85,5 +85,5 @@ file { $myplace_dataroot :
 	ensure => 'directory'
 }
 
-notice("Myplace wwwroot is ${myplace_wwwroot}");
-notice("Myplace dataroot is ${myplace_dataroot}");
+notice("Myplace wwwroot is ${myplace_wwwroot}")
+notice("Myplace dataroot is ${myplace_dataroot}")
