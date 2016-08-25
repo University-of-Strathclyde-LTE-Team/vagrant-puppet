@@ -1,4 +1,4 @@
-# This script sets up an Apache web server, 
+# This script sets up an Apache web server, with PHP and Mysql
 # The wwwroot directory is set to a shared folder exposed by the host
 # See corresponding Vagrantfile
 
@@ -30,9 +30,9 @@ class { 'php':
 }
 
 # Mysql
-class { 'myplace':
-    install_dir => '/vagrant/web'
-    version => 'quack'
-    source_url => 'http://www.strath.ac.uk/media/1newwebsite/images-general/logo_150x150.svg'
-}
+#class { 'myplace':
+#   install_dir => '/vagrant/web'
+#    version => 'quack'
+#    source_url => 'http://www.strath.ac.uk/media/1newwebsite/images-general/logo_150x150.svg'
+#}
 
