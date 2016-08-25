@@ -10,3 +10,9 @@
 [submodule "puppet/modules/vcsrepo"]
 	path = puppet/modules/vcsrepo
 	url = https://github.com/puppetlabs/puppetlabs-vcsrepo.git
+[submodule "puppet/modules/mysql"]
+	path = puppet/modules/mysql
+	url = https://github.com/puppetlabs/puppetlabs-mysql.git
+[submodule "puppet/modules/stdlib"]
+	path = puppet/modules/stdlib
+	url = git@github.com:puppetlabs/puppetlabs-stdlib.git
