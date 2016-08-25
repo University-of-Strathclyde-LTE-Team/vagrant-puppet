@@ -1,6 +1,7 @@
 # This script sets up an Apache web server, with PHP and installs Myplace
 
 # Global variables
+$myplace_url = "http://localhost/"
 $myplace_wwwroot = '/moodle/web'
 $myplace_dataroot = '/moodle/data'
 $phpversion     = '7.0.9' # PHP version to compile
@@ -33,6 +34,7 @@ $phpversion     = '7.0.9' # PHP version to compile
 # Myplace
     notice("Installing Myplace")
     class { 'myplace':
+        url => $myplace_url,
         install_dir => $myplace_wwwroot,
         data_dir => $myplace_dataroot,
     	version => 'quack',
