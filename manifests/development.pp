@@ -25,7 +25,6 @@ file { $myplace_root :
     ensure => 'directory'
 }
 
-
 # System
  if ($install_apache) {
 # Install Apache
@@ -36,9 +35,9 @@ file { $myplace_root :
     }
 
     apache::vhost { 'web' :
-        port 	=> '80',
-        docroot 	=> $myplace_wwwroot,
-        priority	=> ''
+        port       => '80',
+        docroot    => $myplace_wwwroot,
+        priority   => ''
     }
 } else {
     notice("Skipping Apache")
@@ -69,7 +68,6 @@ if ($install_mysql) {
         }
     }
     class { '::mysql::server':
-#        pacakge_name    => 'mysql-server',
         override_options => $override_options
     }
     mysql::db { $myplacedb:
@@ -93,3 +91,4 @@ file { $myplace_dataroot :
 
 notice("Myplace wwwroot is ${myplace_wwwroot}")
 notice("Myplace dataroot is ${myplace_dataroot}")
+
