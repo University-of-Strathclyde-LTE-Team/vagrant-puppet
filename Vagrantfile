@@ -68,16 +68,15 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
 
-  config.vm.provision "file", source: "deps/puppetlabs-release-pc1-xenial.deb", destination: "/home/vagrant/puppetlabs-release-pc1-xenial.deb"
+#  config.vm.provision "file", source: "deps/puppetlabs-release-pc1-xenial.deb", destination: "/home/vagrant/puppetlabs-release-pc1-xenial.deb"
 
 #  config.vm.provision "file", source: "puppet-agent_1.5.3-1xenial_amd64.deb", destination: "puppet-agent_1.5.3-1xenial_amd64.deb"
 
   config.vm.provision "shell", inline: <<-SHELL
-	#wget https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
-	sudo dpkg -i /home/vagrant/puppetlabs-release-pc1-xenial.deb
-	#sudo dpkg -i /home/vagrant/puppet-agent_1.5.3-1xenial_amd64.deb
+	wget -q https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb -O puppet.deb
+	sudo dpkg -i puppet.deb
 	sudo apt-get update
-        sudo apt-get install --yes puppet
+    sudo apt-get -y install puppet-agent
   SHELL
   
   config.librarian_puppet.puppetfile_dir = "puppet"
@@ -86,12 +85,11 @@ Vagrant.configure("2") do |config|
   config.librarian_puppet.destructive = false
   
   config.vm.provision "puppet" do |puppet|
-#	puppet.binary_path = "/opt/puppetlabs/bin"
-	puppet.manifests_path = "manifests"
-	puppet.manifest_file = "development.pp"
-#	puppet.manifest_file = "server.pp"
+#	puppet.manifests_path = "manifests"
+#	puppet.manifest_file = "default.pp"#development.pp"
 	puppet.module_path = "puppet/modules"
-	
+	puppet.environment = "development"
+	puppet.environment_path = "puppet/environments"
   end
 
 end

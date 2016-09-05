@@ -34,7 +34,7 @@ A /vagrant/web/ directory will be created as part of the provisioning. This will
 
 Myplace source code *will not* be downloaded at all.
 
-Usave (Server Provision)
+Usage (Server Provision)
 ========================
 Using the server.pp in the Vagrantfile will bring up a server with Apache, PHP and Myplace installed.
 
